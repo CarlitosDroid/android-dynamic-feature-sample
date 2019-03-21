@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">UrbaniaDevPre</string>
-    <string name="facebook_app_id">688343384666824</string>
-    <string name="email_helpdesk">mobile@orbis.com.pe</string>
-
-    <string name="host">pre4b.urbania.com</string>
-    <string name="pathPrefix_deep_link_detail">/venta-de-casas</string>
-    <string name="pathPrefix_deep_link_advertisements">/venta-de-departamentos-minidepartamento</string>
-
-    <string name="scheme_deep_link">https</string>
+    <string name="app_name">Friends Debug</string>
+    <string name="title_activity_detail">DetailActivity Debug</string>
 </resources>
