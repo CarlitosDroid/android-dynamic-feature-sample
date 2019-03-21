@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Friends Pro</string>
     <string name="title_activity_detail">DetailActivity Pro</string>
+    <string name="title_activity_user">UserActivity Pro</string>
 </resources>

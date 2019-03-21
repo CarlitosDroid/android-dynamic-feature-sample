@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        btnGoToDetail.setOnClickListener {
+        btnGoToUser.setOnClickListener {
             Intent().setClassName(
                 packageName,
-                "com.spidev.detail.DetailActivity"
+                "com.spidev.user.UserActivity"
             ).also {
                 startActivity(it)
             }

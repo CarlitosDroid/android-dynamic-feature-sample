@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Friends Debug</string>
     <string name="title_activity_detail">DetailActivity Debug</string>
+    <string name="title_activity_user">UserActivity Debug</string>
 </resources>
