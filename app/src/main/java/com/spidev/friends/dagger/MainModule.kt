@@ -2,15 +2,17 @@ package com.spidev.friends.dagger
 
 import android.app.Activity
 import android.content.Context
-import com.spidev.core.dagger.CoreDataModule
-import com.spidev.core.detail.DetailDataModule
+import com.spidev.core.dagger.CoreOkHttpModule
+import com.spidev.core.dagger.CoreGsonModule
+import com.spidev.core.dagger.SharedPreferencesModule
 import dagger.Module
 import dagger.Provides
 
-@Module(
+@Module
+    (
     includes = [
-        CoreDataModule::class,
-        DetailDataModule::class
+        CoreGsonModule::class,
+        SharedPreferencesModule::class
     ]
 )
 class MainModule(private val activity: Activity) {
