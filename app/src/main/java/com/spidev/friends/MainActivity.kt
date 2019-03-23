@@ -6,15 +6,26 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
+import com.google.gson.Gson
+import com.spidev.friends.dagger.inject
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import okhttp3.OkHttpClient
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var gson: Gson
+
+    @Inject
+    lateinit var okHttpClient: OkHttpClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        inject(this)
         setSupportActionBar(toolbar)
 
         btnGoToUser.setOnClickListener {
@@ -27,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Base URL: ${BuildConfig.BASE_URL}", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Base URL: ${BuildConfig.BASE_URL} - ${okHttpClient}", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
     }
