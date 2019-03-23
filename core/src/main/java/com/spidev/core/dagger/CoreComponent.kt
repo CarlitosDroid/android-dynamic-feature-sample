@@ -1,10 +1,11 @@
 package com.spidev.core.dagger
 
+import com.spidev.core.detail.DetailDataModule
 import dagger.Component
 
 @Component(
     modules = [
-        DesignerNewsDataModule::class
+        DetailDataModule::class
     ]
 )
 interface CoreComponent {

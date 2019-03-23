@@ -1,11 +1,11 @@
-package com.spidev.core.dagger
+package com.spidev.core.detail
 
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 
 @Module
-class DesignerNewsDataModule {
+class DetailDataModule {
 
     @Provides
     fun provideGson(): Gson = Gson()
