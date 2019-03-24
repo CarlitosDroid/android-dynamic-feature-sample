@@ -1,11 +1,14 @@
 package com.spidev.user
 
+import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
+import com.spidev.core.TAG_NAME
 import com.spidev.friends.BuildConfig
 import com.spidev.user.dagger.inject
 
@@ -29,7 +32,7 @@ class UserActivity : AppCompatActivity() {
                 packageName,
                 "com.spidev.detail.DetailActivity"
             ).also {
-                startActivity(it)
+                startActivityForResult(it, 101)
             }
         }
 
@@ -39,6 +42,14 @@ class UserActivity : AppCompatActivity() {
             //Log.e("DI-USER3", "$gson")
             Snackbar.make(view, "Base URL: ${BuildConfig.BASE_URL}", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 101 && resultCode == Activity.RESULT_OK) {
+            val name = data!!.getStringExtra(TAG_NAME)
+            Toast.makeText(this, "$name", Toast.LENGTH_LONG).show()
         }
     }
 
