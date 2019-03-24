@@ -1,9 +1,6 @@
 package com.spidev.friends.dagger
 
-import com.spidev.core.dagger.BaseComponent
-import com.spidev.core.dagger.CoreComponent
-import com.spidev.core.dagger.CoreDataModule
-import com.spidev.core.detail.DetailDataModule
+import com.spidev.core.dagger.*
 import com.spidev.friends.MainActivity
 import dagger.Component
 
@@ -15,8 +12,8 @@ interface MainComponent : BaseComponent<MainActivity> {
 
         fun build(): MainComponent
         fun coreComponent(module: CoreComponent): Builder
-        fun coreDataModule(module: CoreDataModule): Builder
-        fun designerNewsDataModule(module: DetailDataModule): Builder
-        fun homeModule(module: MainModule): Builder
+        fun coreGsonModule(module: CoreGsonModule): Builder
+        fun sharePreferencesModule(module: SharedPreferencesModule): Builder
+        fun mainModule(module: MainModule): Builder
     }
 }

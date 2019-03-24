@@ -1,16 +1,17 @@
 package com.spidev.core.dagger
 
-import com.spidev.core.detail.DetailDataModule
 import dagger.Component
 
 @Component(
     modules = [
-        DetailDataModule::class
-    ]
+        CoreGsonModule::class,
+        SharedPreferencesModule::class]
 )
 interface CoreComponent {
 
-    @Component.Builder interface Builder {
+    @Component.Builder
+    interface Builder {
         fun build(): CoreComponent
+        fun sharedPreferencesModuleModule(module: SharedPreferencesModule): Builder
     }
 }

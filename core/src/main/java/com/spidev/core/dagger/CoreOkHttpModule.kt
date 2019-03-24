@@ -7,7 +7,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
 @Module
-class CoreDataModule(private val baseUrl: String) {
+class CoreOkHttpModule(private val baseUrl: String) {
 
     @Provides
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
