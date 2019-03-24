@@ -25,12 +25,12 @@ class MainActivity : AppCompatActivity() {
     lateinit var okHttpClient: OkHttpClient
 
     @Inject
-    lateinit var sharePreferences: SharedPreferences
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        inject(this)
+        inject()
         setSupportActionBar(toolbar)
 
         btnGoToUser.setOnClickListener {
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener { view ->
-            Log.e("DI-APP1", "$sharePreferences")
+            Log.e("DI-APP1", "$sharedPreferences")
             Log.e("DI-APP2", "$okHttpClient")
             Log.e("DI-APP3", "$gson")
             Snackbar.make(view, "Base URL: ${BuildConfig.BASE_URL}", Snackbar.LENGTH_LONG)

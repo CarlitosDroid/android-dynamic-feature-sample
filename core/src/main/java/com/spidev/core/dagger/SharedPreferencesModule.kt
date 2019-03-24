@@ -7,11 +7,15 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class SharedPreferencesModule(val context: Context, val name: String) {
+class SharedPreferencesModule(val context: Context) {
 
     @Provides
     fun provideSharedPreferences(): SharedPreferences {
-        return context.applicationContext.getSharedPreferences(name, Context.MODE_PRIVATE)
+        return context.applicationContext.getSharedPreferences(FRIENDS_PREFERENCES, Context.MODE_PRIVATE)
+    }
+
+    private companion object {
+        private const val FRIENDS_PREFERENCES = "friends_preferences"
     }
 }
 

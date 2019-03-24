@@ -1,22 +1,18 @@
 package com.spidev.friends.dagger
 
-//import com.spidev.core.dagger.CoreOkHttpModule
-//import com.spidev.core.dagger.CoreGsonModule
 import com.spidev.core.dagger.CoreOkHttpModule
 import com.spidev.core.dagger.SharedPreferencesModule
 import com.spidev.friends.MainActivity
 import com.spidev.friends.app.FriendsApplication
 
-fun inject(
-    activity: MainActivity
-) {
+fun MainActivity.inject() {
     DaggerMainComponent.builder()
-        .coreComponent(FriendsApplication.coreComponent(activity))
+        .coreComponent(FriendsApplication.coreComponent(this))
         .coreOkHttpModule(CoreOkHttpModule("BASEURL"))
         //.coreGsonModule(CoreGsonModule())
-        .sharePreferencesModule(SharedPreferencesModule(activity, "MYSHARED"))
-        .mainModule(MainModule(activity))
+        .sharePreferencesModule(SharedPreferencesModule(this))
+        .mainModule(MainModule(this))
         .build()
-        .inject(activity)
+        .inject(this)
 
 }
