@@ -5,6 +5,7 @@ import dagger.Component
 @Component(
     modules = [
         CoreGsonModule::class,
+        CoreOkHttpModule::class,
         SharedPreferencesModule::class]
 )
 interface CoreComponent {
@@ -12,6 +13,7 @@ interface CoreComponent {
     @Component.Builder
     interface Builder {
         fun build(): CoreComponent
+        fun coreOkHttpModule(module: CoreOkHttpModule): Builder
         fun sharedPreferencesModuleModule(module: SharedPreferencesModule): Builder
     }
 }

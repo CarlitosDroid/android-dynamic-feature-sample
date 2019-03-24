@@ -3,6 +3,7 @@ package com.spidev.friends
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
@@ -20,8 +21,8 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var gson: Gson
 
-    //@Inject
-    //lateinit var okHttpClient: OkHttpClient
+    @Inject
+    lateinit var okHttpClient: OkHttpClient
 
     @Inject
     lateinit var sharePreferences: SharedPreferences
@@ -42,7 +43,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Base URL: ${BuildConfig.BASE_URL} - ${sharePreferences}", Snackbar.LENGTH_LONG)
+            Log.e("DI-APP1", "$sharePreferences")
+            Log.e("DI-APP2", "$okHttpClient")
+            Log.e("DI-APP3", "$gson")
+            Snackbar.make(view, "Base URL: ${BuildConfig.BASE_URL}", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
     }

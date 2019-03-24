@@ -13,6 +13,7 @@ interface MainComponent : BaseComponent<MainActivity> {
         fun build(): MainComponent
         fun coreComponent(module: CoreComponent): Builder
         fun coreGsonModule(module: CoreGsonModule): Builder
+        fun coreOkHttpModule(module: CoreOkHttpModule): Builder
         fun sharePreferencesModule(module: SharedPreferencesModule): Builder
         fun mainModule(module: MainModule): Builder
     }

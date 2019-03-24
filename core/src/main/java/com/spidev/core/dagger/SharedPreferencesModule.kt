@@ -5,10 +5,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module
-open class SharedPreferencesModule(val context: Context, val name: String) {
+class SharedPreferencesModule(val context: Context, val name: String) {
 
     @Provides
     fun provideSharedPreferences(): SharedPreferences {
