@@ -12,6 +12,7 @@ import dagger.Provides
     (
     includes = [
         CoreGsonModule::class,
+        CoreOkHttpModule::class,
         SharedPreferencesModule::class
     ]
 )
