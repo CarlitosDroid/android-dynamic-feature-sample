@@ -8,7 +8,9 @@ import android.util.Log
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.gson.Gson
 import com.spidev.core.TAG_NAME
+import com.spidev.core.user.UserRepository
 import com.spidev.friends.BuildConfig
 import com.spidev.user.dagger.inject
 
@@ -20,6 +22,15 @@ class UserActivity : AppCompatActivity() {
 
     @Inject
     lateinit var sharedPreferences: SharedPreferences
+
+    @Inject
+    lateinit var userViewModel: UserViewModel
+
+    @Inject
+    lateinit var userRepository: UserRepository
+
+    @Inject
+    lateinit var gson: Gson
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +48,12 @@ class UserActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener { view ->
-            Log.e("DI-USER1", "$sharedPreferences")
+            Log.e("DI-USER-SP", "$sharedPreferences")
+            Log.e("DI-USER-UVM", "$userViewModel")
+            Log.e("DI-USER-UR", "$userRepository")
             //Log.e("DI-USER2", "$okHttpClient")
-            //Log.e("DI-USER3", "$gson")
+            Log.e("DI-USER-GSON", "$gson")
+            userViewModel.getListOfUser()
             Snackbar.make(view, "Base URL: ${BuildConfig.BASE_URL}", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }

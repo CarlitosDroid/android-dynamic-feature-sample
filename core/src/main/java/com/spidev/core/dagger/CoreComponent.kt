@@ -1,12 +1,14 @@
 package com.spidev.core.dagger
 
+import com.spidev.core.dagger.user.UserDataModule
 import dagger.Component
 
 @Component(
     modules = [
         CoreGsonModule::class,
         CoreOkHttpModule::class,
-        SharedPreferencesModule::class]
+        SharedPreferencesModule::class,
+        UserDataModule::class]
 )
 interface CoreComponent {
 

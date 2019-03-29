@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
 import com.google.gson.Gson
+import com.spidev.core.user.UserRepository
 import com.spidev.friends.dagger.inject
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,6 +28,9 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var sharedPreferences: SharedPreferences
 
+    @Inject
+    lateinit var userRepository: UserRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -43,9 +47,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener { view ->
-            Log.e("DI-APP1", "$sharedPreferences")
-            Log.e("DI-APP2", "$okHttpClient")
-            Log.e("DI-APP3", "$gson")
+            Log.e("DI-MAIN-SP", "$sharedPreferences")
+            Log.e("DI-MAIN-OKHTTP", "$okHttpClient")
+            Log.e("DI-MAIN-GSON", "$gson")
+            Log.e("DI-MAIN-UR", "$userRepository")
             Snackbar.make(view, "Base URL: ${BuildConfig.BASE_URL}", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }

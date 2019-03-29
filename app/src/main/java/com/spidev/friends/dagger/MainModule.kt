@@ -5,6 +5,7 @@ import android.content.Context
 import com.spidev.core.dagger.CoreOkHttpModule
 import com.spidev.core.dagger.CoreGsonModule
 import com.spidev.core.dagger.SharedPreferencesModule
+import com.spidev.core.dagger.user.UserDataModule
 import dagger.Module
 import dagger.Provides
 
@@ -13,7 +14,8 @@ import dagger.Provides
     includes = [
         CoreGsonModule::class,
         CoreOkHttpModule::class,
-        SharedPreferencesModule::class
+        SharedPreferencesModule::class,
+        UserDataModule::class
     ]
 )
 class MainModule(private val activity: Activity) {
