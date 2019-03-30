@@ -9,7 +9,7 @@ buildscript {
             'androidx'           : '1.0.0',
             'androidxCollection' : '1.0.0',
             'androidxCoreRuntime': '2.0.1-alpha01',
-            'constraintLayout'   : '2.0.0-alpha2',
+            'constraintLayout'   : '2.0.0-alpha3',
             'coreKtx'            : '1.0.0',
             'coroutines'         : '1.0.0',
             'crashlytics'        : '2.9.5',
